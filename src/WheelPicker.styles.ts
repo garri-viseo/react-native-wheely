@@ -2,9 +2,11 @@ import { StyleSheet } from 'react-native';
 
 export default StyleSheet.create({
   container: {
+    width: '100%',
     position: 'relative',
   },
   selectedIndicator: {
+    justifyContent: 'center',
     position: 'absolute',
     width: '100%',
     backgroundColor: 'hsl(200, 8%, 94%)',

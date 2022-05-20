@@ -8,6 +8,7 @@ import {
   ViewStyle,
   View,
   ViewProps,
+  Text
 } from 'react-native';
 import styles from './WheelPicker.styles';
 import WheelPickerItem from './WheelPickerItem';
@@ -31,6 +32,8 @@ interface Props {
   updateCellsBatchingPeriod?: number;
   initialNumToRender?: number;
   removeClippedSubviews?: boolean;
+  unit?: string;
+  unitStyle?: TextStyle[] | TextStyle;
 }
 
 const WheelPicker: React.FC<Props> = ({
@@ -52,6 +55,8 @@ const WheelPicker: React.FC<Props> = ({
   initialNumToRender = 10,
   removeClippedSubviews = false,
   containerProps = {},
+  unit,
+  unitStyle
 }) => {
   const [scrollY] = useState(new Animated.Value(0));
 
@@ -102,7 +107,9 @@ const WheelPicker: React.FC<Props> = ({
             height: itemHeight,
           },
         ]}
-      />
+      >
+        <Text style={unitStyle}>{unit}</Text>
+      </View>
       <Animated.FlatList<string | null>
         style={styles.scrollView}
         showsVerticalScrollIndicator={false}
